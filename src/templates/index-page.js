@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 
 import Layout from "../components/Layout";
-import Features from "../components/Features";
 import BlogRoll from "../components/BlogRoll";
 
 export const IndexPageTemplate = ({
@@ -12,25 +11,24 @@ export const IndexPageTemplate = ({
   heading,
   subheading,
   mainpitch,
-  description,
-  intro
+  description
 }) => (
   <div>
+    <h2>{title}</h2>
     <div
       style={{
         backgroundImage: `url(${
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`
+        })`,
+        height: "200px",
+        width: "100%"
       }}
     ></div>
-    <h1>{title}</h1>
+    <h2>{heading}</h2>
     <h3>{subheading}</h3>
+    <p>{description}</p>
     <h1 className="title">{mainpitch.title}</h1>
     <h3 className="subtitle">{mainpitch.description}</h3>
-    <h3 className="has-text-weight-semibold is-size-2">{heading}</h3>
-    <p>{description}</p>
-    <Features gridItems={intro.blurbs} />
-    <h3 className="has-text-weight-semibold is-size-2">Latest stories</h3>
     <BlogRoll />
   </div>
 );
@@ -41,10 +39,7 @@ IndexPageTemplate.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array
-  })
+  description: PropTypes.string
 };
 
 const IndexPage = ({ data }) => {
@@ -59,7 +54,6 @@ const IndexPage = ({ data }) => {
         subheading={frontmatter.subheading}
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
-        intro={frontmatter.intro}
       />
     </Layout>
   );
