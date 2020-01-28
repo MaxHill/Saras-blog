@@ -69,13 +69,13 @@ const Text = styled(Link)`
 
 const BlogRoll = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
-  console.log(posts);
+
   return (
     <Roll>
       {posts &&
         posts.map(({ node: post }) => (
-          <Post>
-            <Text to={post.fields.slug} key={post.id}>
+          <Post key={post.id}>
+            <Text to={post.fields.slug}>
               <h2>{post.frontmatter.title}</h2>
               <p>{post.frontmatter.description}</p>
             </Text>
