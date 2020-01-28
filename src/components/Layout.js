@@ -1,14 +1,45 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
-import "./all.sass";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
+import { createGlobalStyle } from "styled-components";
+import { Normalize } from "styled-normalize";
+import colors from "../styles/colors";
+
+const GlobalStyle = createGlobalStyle`
+ html {
+   box-sizing: border-box;
+  }
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+
+  body {
+    font-family: 'Raleway', sans-serif;
+    color: ${colors.text}
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    font-weight: 600;
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: .1rem;
+  }
+
+  p {
+    line-height: 1.7;
+    letter-spacing: .05rem;
+  }
+`;
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <div>
+    <>
+      <Normalize />
+      <GlobalStyle />
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -47,10 +78,9 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
       </Helmet>
-      [ADD_NAVBAR]
-      <div>{children}</div>
+      {children}
       <Footer />
-    </div>
+    </>
   );
 };
 

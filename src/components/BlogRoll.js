@@ -1,40 +1,98 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link, graphql, StaticQuery } from "gatsby";
 import Img from "gatsby-image";
+import styled from "styled-components";
+import colors from "../styles/colors";
 
-class BlogRoll extends React.Component {
-  render() {
-    const { data } = this.props;
-    const { edges: posts } = data.allMarkdownRemark;
+const Roll = styled.section`
+  background: #fff;
+  max-width: 100rem;
+  width: 90%;
+  margin: 0 auto;
+`;
 
-    console.log(posts);
+const Post = styled.div`
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-rows: max-content;
+  margin-bottom: 6rem;
 
-    return (
-      <div>
-        {posts &&
-          posts.map(({ node: post }) => (
-            <Link to={post.fields.slug} key={post.id}>
-              {post.frontmatter.title}
-              {post.frontmatter.featuredimage && (
-                <Img
-                  fluid={post.frontmatter.featuredimage.childImageSharp.fluid}
-                  alt={post.frontmatter.title}
-                />
-              )}
-            </Link>
-          ))}
-      </div>
-    );
+  @media only screen and (min-width: 800px) {
+    grid-template-columns: 2fr 3fr;
+
+    &:nth-child(odd) {
+      direction: rtl;
+    }
   }
-}
+`;
 
-BlogRoll.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array
-    })
-  })
+const Grid = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 0.3rem;
+  grid-auto-flow: dense;
+
+  @media only screen and (min-width: 650px) {
+    grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  }
+
+  @media only screen and (min-width: 900px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+`;
+
+const GridItem = styled(Img)`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+const Text = styled(Link)`
+  padding: 2rem;
+  text-align: center;
+  text-decoration: none;
+  color: ${colors.text};
+  transition: all 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 30rem;
+
+  &:hover {
+    color: ${colors.textHover};
+    transition: all 0.3s ease;
+  }
+`;
+
+const BlogRoll = ({ data }) => {
+  const { edges: posts } = data.allMarkdownRemark;
+  console.log(posts);
+  return (
+    <Roll>
+      {posts &&
+        posts.map(({ node: post }) => (
+          <Post>
+            <Text to={post.fields.slug} key={post.id}>
+              <h2>{post.frontmatter.title}</h2>
+              <p>{post.frontmatter.description}</p>
+            </Text>
+            <Grid>
+              {post.frontmatter.galleryImages.length &&
+                post.frontmatter.galleryImages.map(image => (
+                  <GridItem
+                    key={image.childImageSharp.fluid.src}
+                    fluid={image.childImageSharp.fluid}
+                    alt={post.frontmatter.title}
+                  />
+                ))}
+            </Grid>
+          </Post>
+        ))}
+    </Roll>
+  );
 };
 
 export default () => (
@@ -57,9 +115,10 @@ export default () => (
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
-                featuredimage {
+                description
+                galleryImages {
                   childImageSharp {
-                    fluid(maxWidth: 1200, quality: 100) {
+                    fluid(maxWidth: 2048, quality: 100) {
                       ...GatsbyImageSharpFluid
                     }
                   }

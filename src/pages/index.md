@@ -2,10 +2,6 @@
 templateKey: index-page
 title: Great coffee with a conscience
 image: /img/home-jumbotron.jpg
-galleryImages:
-  - /img/products-full-width.jpg
-  - /img/chemex.jpg
-  - /img/jumbotron.jpg
 heading: Great coffee with a conscience
 subheading: Support sustainable farming while enjoying a cup
 description: >-
@@ -21,4 +17,3 @@ mainpitch:
     directly from small scale sustainable farmers and make sure part of the
     profits are reinvested in their communities.
 ---
-
