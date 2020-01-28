@@ -42,13 +42,13 @@ const Hero = styled.header`
   }
 `;
 
-export const IndexPageTemplate = ({ heading, description }) => (
+export const IndexPageTemplate = ({ heading, description, email }) => (
   <main>
     <Hero>
       <div className="wrapper">
         <h1>{heading}</h1>
         <p>{description}</p>
-        <a href="mailto:Sara@hilloco.se">Sara@hilloco.se</a>
+        <a href={`mailto:${email}`}>{email}</a>
       </div>
     </Hero>
     <BlogRoll />
@@ -64,6 +64,7 @@ const IndexPage = ({ data }) => {
         title={frontmatter.title}
         heading={frontmatter.heading}
         description={frontmatter.description}
+        email={frontmatter.email}
       />
     </Layout>
   );
@@ -78,6 +79,7 @@ export const pageQuery = graphql`
         title
         heading
         description
+        email
       }
     }
   }
