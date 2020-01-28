@@ -23,20 +23,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Roboto Slab`,
-            variants: [`600`]
-          },
-          {
-            family: `Raleway`
-          }
-        ]
-      }
-    },
-    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
       options: {
