@@ -8,8 +8,11 @@ import colors from "../styles/colors";
 
 const Hero = styled.header`
   background: ${colors.offWhite};
-  padding: 8rem;
+  padding: 4rem 0;
   margin-bottom: 6rem;
+  @media only screen and (min-width: 650px) {
+    padding: 8rem;
+  }
 
   > .wrapper {
     max-width: 100rem;
