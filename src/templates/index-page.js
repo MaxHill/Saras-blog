@@ -45,8 +45,11 @@ const Hero = styled.header`
   }
 `;
 
-export const IndexPageTemplate = ({ heading, description, email }) => (
+export const IndexPageTemplate = ({ title, heading, description, email }) => (
   <main>
+    <Helmet>
+      <title>{title}</title>
+    </Helmet>
     <Hero>
       <div className="wrapper">
         <h1>{heading}</h1>
@@ -64,6 +67,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
+        title={frontmatter.title}
         heading={frontmatter.heading}
         description={frontmatter.description}
         email={frontmatter.email}
