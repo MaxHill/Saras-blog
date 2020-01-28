@@ -41,7 +41,7 @@ const TemplateWrapper = ({ children }) => {
       <Normalize />
       <GlobalStyle />
       <Helmet>
-        <html lang="en" />
+        <html lang="sv" />
         <title>{title}</title>
         <meta name="description" content={description} />
 

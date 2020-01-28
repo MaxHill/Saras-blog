@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { Helmet } from "react-helmet";
 
 import Layout from "../components/Layout";
 import BlogRoll from "../components/BlogRoll";
@@ -49,6 +50,8 @@ export const IndexPageTemplate = ({ title, heading, description, email }) => (
   <main>
     <Helmet>
       <title>{title}</title>
+      <meta name="description" content={description} />
+      <meta property="og:title" content={title} />
     </Helmet>
     <Hero>
       <div className="wrapper">
