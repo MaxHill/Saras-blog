@@ -118,7 +118,7 @@ export default () => (
                 description
                 galleryImages {
                   childImageSharp {
-                    fluid(maxWidth: 2048, quality: 100) {
+                    fluid(maxWidth: 350, quality: 100) {
                       ...GatsbyImageSharpFluid
                     }
                   }
