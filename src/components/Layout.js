@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 import { createGlobalStyle } from "styled-components";
@@ -79,7 +79,7 @@ const TemplateWrapper = ({ children }) => {
         />
       </Helmet>
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

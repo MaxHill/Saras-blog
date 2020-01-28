@@ -61,7 +61,6 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        title={frontmatter.title}
         heading={frontmatter.heading}
         description={frontmatter.description}
         email={frontmatter.email}

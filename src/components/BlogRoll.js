@@ -40,7 +40,7 @@ const Grid = styled.div`
   }
 
   @media only screen and (min-width: 900px) {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 `;
 
