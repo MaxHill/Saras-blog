@@ -81,7 +81,7 @@ const CloseButton = styled.button`
   position: fixed;
   left: 50%;
   top: 1rem;
-  transform: translate3d(-1.5rem, 0, 0);
+  margin-left: -1.5rem;
   background: ${colors.red};
   color: ${colors.white};
   width: 3rem;
