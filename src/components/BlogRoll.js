@@ -100,7 +100,8 @@ const CloseButton = styled.button`
   );
 
   :hover,
-  :active {
+  :active,
+  :focus {
     outline: none;
   }
 `;
