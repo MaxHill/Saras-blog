@@ -7,7 +7,6 @@ import styled from "styled-components";
 
 import Layout from "../components/Layout";
 import { HTMLContent } from "../components/Content";
-import Minimize from "../components/Minimize";
 import colors from "../styles/colors";
 
 const ImageGrid = styled.div`

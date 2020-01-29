@@ -152,7 +152,6 @@ const BlogRoll = ({ data }) => {
         mounted={selectedPost}
         underlayClickExits={true}
         verticallyCenter={true}
-        underlayColor={colors.offWhite07}
         underlayColor={false}
         underlayClass={animate === "enter" ? "underlay -enter" : "underlay"}
       >
