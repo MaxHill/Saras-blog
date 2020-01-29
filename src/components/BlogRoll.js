@@ -103,6 +103,7 @@ const CloseButton = styled.button`
   :active,
   :focus {
     outline: none;
+    box-shadow: 0 0.2rem 0.5rem -0.1rem ${colors.black};
   }
 `;
 
