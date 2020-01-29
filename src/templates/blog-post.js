@@ -98,6 +98,7 @@ const BlogPost = ({ data }) => {
     <Layout>
       <BlogPostTemplate
         post={post}
+        animate="enter"
         helmet={
           <Helmet titleTemplate="%s | Sara Hill">
             <title>{`${post.frontmatter.title}`}</title>
