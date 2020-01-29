@@ -32,6 +32,25 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.7;
     letter-spacing: .05rem;
   }
+
+  .sr-only:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  .underlay {
+    transition: background-color .3s ease;
+    background-color: transparent;
+
+    &.-enter {
+      background-color: ${colors.offWhite07};
+    }
+  }
 `;
 
 const TemplateWrapper = ({ children }) => {
