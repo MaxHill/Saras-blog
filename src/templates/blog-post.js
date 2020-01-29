@@ -48,6 +48,8 @@ const Wrapper = styled.section`
 
 const Text = styled.div`
   padding: 3rem;
+  max-width: 50rem;
+  margin: 0 auto;
 `;
 
 const Preamble = styled.p`
