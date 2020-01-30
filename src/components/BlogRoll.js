@@ -161,7 +161,8 @@ const BlogRoll = ({ data }) => {
             <Minimize />
           </CloseButton>
           <BlogPostTemplate
-            post={selectedPost}
+            content={selectedPost.html}
+            post={selectedPost.frontmatter}
             inline={true}
             animate={animate}
           />

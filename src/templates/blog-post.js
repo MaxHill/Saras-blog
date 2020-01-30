@@ -30,6 +30,19 @@ const ImageGridItem = styled(Img)`
   scroll-snap-align: center;
 `;
 
+const ImageGridItemPreview = styled.div`
+  scroll-snap-align: center;
+  position: relative;
+  overflow: hidden;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    opacity: 1;
+  }
+`;
+
 const Wrapper = styled.section`
   max-width: 100rem;
   width: 90%;
@@ -56,27 +69,46 @@ const Preamble = styled.p`
   font-size: 1.2rem;
 `;
 
-export const BlogPostTemplate = ({ post, helmet, inline = false, animate }) => {
+export const BlogPostTemplate = ({
+  content,
+  post,
+  helmet,
+  inline = false,
+  animate
+}) => {
   return (
     <Wrapper inline={inline} animate={animate}>
       {helmet || ""}
       <ImageGrid>
-        {post.frontmatter.galleryImages.length &&
-          post.frontmatter.galleryImages.map(image => (
-            <ImageGridItem
-              className="img"
-              key={image.childImageSharp.fluid.src}
-              fluid={image.childImageSharp.fluid}
-              alt={post.frontmatter.title}
-            />
-          ))}
+        {post.galleryImages &&
+          post.galleryImages.length &&
+          post.galleryImages.map(
+            image =>
+              image &&
+              (image.childImageSharp ? (
+                <ImageGridItem
+                  className="img"
+                  key={image.childImageSharp.fluid.src}
+                  fluid={image.childImageSharp.fluid}
+                  alt={post.title}
+                />
+              ) : (
+                <ImageGridItemPreview>
+                  <img src={image} alt={post.title} />
+                </ImageGridItemPreview>
+              ))
+          )}
       </ImageGrid>
       <Text>
-        <h1>{post.frontmatter.title}</h1>
-        <Preamble>{post.frontmatter.description}</Preamble>
-        <HTMLContent content={post.html} />
+        <h1>{post.title}</h1>
+        <Preamble>{post.description}</Preamble>
+        {typeof content === "object" ? (
+          content
+        ) : (
+          <HTMLContent content={content} />
+        )}
       </Text>
-      {post.tags && post.tags.length ? (
+      {false && post.tags && post.tags.length ? (
         <div>
           <h4>Tags</h4>
           <ul>
@@ -98,7 +130,8 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <BlogPostTemplate
-        post={post}
+        content={post.html}
+        post={post.frontmatter}
         animate="enter"
         helmet={
           <Helmet titleTemplate="%s | Sara Hill">
