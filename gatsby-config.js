@@ -12,14 +12,6 @@ module.exports = {
       }
     },
     {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ["Raleway", "Roboto Slab:600"]
-        }
-      }
-    },
-    {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
       options: {

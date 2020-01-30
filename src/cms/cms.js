@@ -10,7 +10,7 @@ import IndexPagePreview from "./preview-templates/IndexPagePreview";
 CMS.registerMediaLibrary(uploadcare);
 CMS.registerMediaLibrary(cloudinary);
 
-CMS.registerPreviewStyle(`/admin/cms.css`);
+// CMS.registerPreviewStyle(`/admin/cms.css`);
 
 CMS.registerPreviewTemplate("index", withStyled(IndexPagePreview));
 CMS.registerPreviewTemplate("about", withStyled(AboutPagePreview));
