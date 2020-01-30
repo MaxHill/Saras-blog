@@ -9,39 +9,28 @@ import Layout from "../components/Layout";
 import { HTMLContent } from "../components/Content";
 import colors from "../styles/colors";
 
-const ImageGrid = styled.div`
-  display: grid;
-  max-height: 80vh;
-  grid-gap: 0.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(1000px, 90%));
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(1000px, 90%);
+const ImageSlider = styled.div`
+  display: flex;
   overflow-x: auto;
-  overflow-y: hidden;
   scroll-snap-type: x mandatory;
-  overflow-x: scroll;
+
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 `;
 
-const ImageGridItem = styled(Img)`
+const ImageSliderImage = styled(Img)`
   scroll-snap-align: center;
-`;
-
-const ImageGridItemPreview = styled.div`
-  scroll-snap-align: center;
+  flex-shrink: 0;
+  max-width: 90%;
+  width: 60rem;
+  max-height: 80vh;
+  margin-right: 0.5rem;
   position: relative;
-  overflow: hidden;
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    opacity: 1;
-  }
 `;
 
 const Wrapper = styled.section`
-  max-width: 100rem;
-  width: 90%;
+  max-width: 90%;
+  width: 100rem;
   margin: ${p => (p.inline ? "5rem" : "0")} auto;
   background: ${colors.white};
   border-radius: ${p => (p.inline ? "0.5rem" : "0")};
@@ -75,26 +64,26 @@ export const BlogPostTemplate = ({
   return (
     <Wrapper inline={inline} animate={animate}>
       {helmet || ""}
-      <ImageGrid>
+
+      <ImageSlider>
         {post.galleryImages &&
           post.galleryImages.length &&
           post.galleryImages.map(
             image =>
               image &&
               (image.childImageSharp ? (
-                <ImageGridItem
+                <ImageSliderImage
                   className="img"
                   key={image.childImageSharp.fluid.src}
                   fluid={image.childImageSharp.fluid}
                   alt={post.title}
                 />
               ) : (
-                <ImageGridItemPreview>
-                  <img src={image} alt={post.title} />
-                </ImageGridItemPreview>
+                <ImageSliderImage as="img" src={image} alt={post.title} />
               ))
           )}
-      </ImageGrid>
+      </ImageSlider>
+
       <Text>
         <h1>{post.title}</h1>
         <Preamble>{post.description}</Preamble>
