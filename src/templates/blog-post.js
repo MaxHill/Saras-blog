@@ -13,17 +13,13 @@ const ImageGrid = styled.div`
   display: grid;
   max-height: 80vh;
   grid-gap: 0.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(90%, 90rem));
+  grid-template-columns: repeat(auto-fill, minmax(1000px, 90%));
   grid-auto-flow: column;
-  grid-auto-columns: minmax(90%, 90rem);
+  grid-auto-columns: minmax(1000px, 90%);
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   overflow-x: scroll;
-
-  > .img {
-    scroll-snap-align: center;
-  }
 `;
 
 const ImageGridItem = styled(Img)`
