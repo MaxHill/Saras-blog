@@ -8,7 +8,7 @@ import { Normalize } from "styled-normalize";
 import colors from "../styles/colors";
 
 const GlobalStyle = createGlobalStyle`
- html {
+  html {
    box-sizing: border-box;
   }
   *,

@@ -12,13 +12,11 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        fonts: [
-          `Raleway`,
-          `Roboto Slab\:100,600` // you can also specify font weights and styles
-        ],
-        display: "swap"
+        google: {
+          families: ["Raleway", "Roboto Slab:600"]
+        }
       }
     },
     {

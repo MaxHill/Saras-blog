@@ -7,12 +7,14 @@ const IndexPagePreview = ({ entry, getAsset }) => {
 
   if (data) {
     return (
-      <IndexPageTemplate
-        title={data.title}
-        heading={data.heading}
-        description={data.description}
-        email={data.email}
-      />
+      <>
+        <IndexPageTemplate
+          title={data.title}
+          heading={data.heading}
+          description={data.description}
+          email={data.email}
+        />
+      </>
     );
   } else {
     return <div>Loading...</div>;
