@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import colors from "../styles/colors";
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab:600&display=swap');
+  /* @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab:600&display=swap'); */
 
   html {
    box-sizing: border-box;

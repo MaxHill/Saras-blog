@@ -50,7 +50,6 @@ const Text = styled.div`
 `;
 
 const Preamble = styled.p`
-  font-weight: 800;
   font-size: 1.2rem;
 `;
 
