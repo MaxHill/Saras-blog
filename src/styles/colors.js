@@ -9,5 +9,6 @@ export default {
   offWhite07: "rgba(239, 234, 230, .7)", //#efeae6
   red: "#ff0000",
   yellow: "#F2C858",
-  black: "#362E21"
+  black: "#362E21",
+  oliveGreen: "#3F4122"
 };

@@ -10,9 +10,12 @@ import colors from "../styles/colors";
 const Hero = styled.header`
   background: ${colors.offWhite};
   padding: 4rem 0;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
   @media only screen and (min-width: 650px) {
     padding: 8rem;
+  }
+  @media only screen and (min-width: 800px) {
+    margin-bottom: 8rem;
   }
 
   > .wrapper {
@@ -33,10 +36,17 @@ const Hero = styled.header`
     > a {
       flex-grow: 0;
       display: inline;
-      color: ${colors.text};
-      font-size: 1.125rem;
-      border-bottom: 1px solid ${colors.text};
+      color: ${colors.oliveGreen};
+      font-size: 1.2rem;
       text-decoration: none;
+      /* font-weight: 600; */
+      border-bottom: 2px solid transparent;
+
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: ${colors.oliveGreen};
+      }
     }
 
     > h1 {

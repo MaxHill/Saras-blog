@@ -19,12 +19,13 @@ const Post = styled(Link)`
   justify-items: center;
   align-items: center;
   grid-template-rows: max-content;
-  margin-bottom: 6rem;
   text-decoration: none;
   transition: all 0.3s ease;
+  margin-bottom: 3rem;
 
   @media only screen and (min-width: 800px) {
     grid-template-columns: 2fr 3fr;
+    margin-bottom: 8rem;
 
     &:nth-child(odd) {
       direction: rtl;
@@ -63,7 +64,8 @@ const GridItem = styled(Img)`
 `;
 
 const Text = styled.div`
-  padding: 2rem;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
   text-align: center;
   text-decoration: none;
   color: ${colors.text};
@@ -82,7 +84,7 @@ const CloseButton = styled.button`
   left: 50%;
   top: 1rem;
   margin-left: -1.5rem;
-  background: ${colors.red};
+  background: ${colors.oliveGreen};
   color: ${colors.white};
   width: 3rem;
   height: 3rem;
@@ -91,7 +93,7 @@ const CloseButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   z-index: 1;
-  border: 1px solid ${colors.red};
+  border: 2px solid ${colors.oliveGreen};
   transition: all 0.3s ease;
 
   opacity: ${p => (p.animate === "enter" ? "1" : "0")};
@@ -103,7 +105,6 @@ const CloseButton = styled.button`
   :active,
   :focus {
     outline: none;
-    box-shadow: 0 0.2rem 0.5rem -0.1rem ${colors.black};
   }
 `;
 

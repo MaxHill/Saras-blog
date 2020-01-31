@@ -22,7 +22,6 @@ export default createGlobalStyle`
   h1,h2,h3,h4,h5,h6 {
     font-weight: 600;
     font-family: 'Roboto Slab', serif;
-    letter-spacing: .1rem;
   }
 
   p {
