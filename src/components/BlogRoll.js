@@ -23,9 +23,15 @@ const Post = styled(Link)`
   transition: all 0.3s ease;
   margin-bottom: 3rem;
 
+  background: ${colors.offWhite};
+  border-radius: 0.5rem;
+  overflow: hidden;
+
   @media only screen and (min-width: 800px) {
     grid-template-columns: 2fr 3fr;
     margin-bottom: 8rem;
+    background: transparent;
+    border-radius: 0;
 
     &:nth-child(odd) {
       direction: rtl;
@@ -64,8 +70,7 @@ const GridItem = styled(Img)`
 `;
 
 const Text = styled.div`
-  padding: 0 2rem;
-  margin-bottom: 2rem;
+  padding: 2rem;
   text-align: center;
   text-decoration: none;
   color: ${colors.text};
