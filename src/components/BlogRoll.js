@@ -23,9 +23,18 @@ const Post = styled(Link)`
   transition: all 0.3s ease;
   margin-bottom: 3rem;
 
+  padding-bottom: 3rem;
+  border-bottom: 1px solid ${colors.offWhite};
+
+  h2 {
+    margin-top: 0;
+  }
+
   @media only screen and (min-width: 800px) {
     grid-template-columns: 2fr 3fr;
     margin-bottom: 8rem;
+    padding-bottom: 0rem;
+    border-bottom: none;
 
     &:nth-child(odd) {
       direction: rtl;
