@@ -28,6 +28,7 @@ const Post = styled(Link)`
 
   h2 {
     margin-top: 0;
+    margin-bottom: 0.2rem;
   }
 
   @media only screen and (min-width: 800px) {
