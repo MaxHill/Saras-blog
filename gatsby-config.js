@@ -1,7 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: "Sara Hill",
-    description: "Sara Hills hemsida"
+    description: "Sara Hills hemsida",
+    siteUrl: "https://sara-hill.netlify.com"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
