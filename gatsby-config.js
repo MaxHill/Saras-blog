@@ -9,7 +9,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "Sara Hill",
-        short_name: "SH",
+        short_name: "Sara",
         start_url: "/",
         background_color: "#fff",
         theme_color: "#fff",
