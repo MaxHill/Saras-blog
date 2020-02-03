@@ -29,6 +29,8 @@ module.exports = {
             type: "image/png"
           }
         ],
+        include_favicon: false, // This will exclude favicon link tag
+        legacy: false, // this will not add apple-touch-icon links to <head>
         // An optional attribute which provides support for CORS check.
         // If you do not provide a crossOrigin option, it will skip CORS for manifest.
         // Any invalid keyword or empty string defaults to `anonymous`
