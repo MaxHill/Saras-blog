@@ -19,12 +19,12 @@ module.exports = {
         // icon: "src/img/android-chrome-512x512.png",
         icons: [
           {
-            src: "/static/img/android-chrome-192x192.png",
+            src: "/img/android-chrome-192x192.png",
             sizes: "192x192",
             type: "image/png"
           },
           {
-            src: "/static/img/android-chrome-512x512.png",
+            src: "/img/android-chrome-512x512.png",
             sizes: "512x512",
             type: "image/png"
           }
