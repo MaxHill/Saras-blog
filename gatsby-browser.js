@@ -1,5 +1,5 @@
-require("typeface-roboto-slab");
 require("typeface-raleway");
+require("typeface-merriweather");
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(

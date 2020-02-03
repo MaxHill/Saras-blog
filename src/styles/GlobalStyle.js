@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 import colors from "../styles/colors";
 
 export default createGlobalStyle`
-  /* @import url('https://fonts.googleapis.com/css?family=Raleway|Roboto+Slab:600&display=swap'); */
 
   html {
    box-sizing: border-box;
@@ -19,9 +18,14 @@ export default createGlobalStyle`
     color: ${colors.text};
   }
 
+  ::selection {
+    background-color: ${colors.oliveGreen};
+    color: ${colors.offWhite};
+}
+
   h1,h2,h3,h4,h5,h6 {
     font-weight: 600;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Merriweather', serif;
   }
 
   p {
