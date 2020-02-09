@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link, graphql, StaticQuery } from "gatsby";
+import { Link } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 import colors from "../styles/colors";
 import { BlogPostTemplate } from "../templates/blog-post";
 import AriaModal from "react-aria-modal";
 import Minimize from "./Minimize";
+import useBlogPosts from "./BlogPosts";
 
 const Roll = styled.section`
   background: ${colors.white};
@@ -118,15 +119,16 @@ const CloseButton = styled.button`
   }
 `;
 
-const BlogRoll = ({ data }) => {
-  const { edges: posts } = data.allMarkdownRemark;
+const BlogRoll = () => {
   const [selectedPost, setSelectedPost] = useState(false);
   const [animate, setAnimate] = useState("exit");
+  const posts = useBlogPosts();
+
   const openPost = (e, post) => {
     e.preventDefault();
     setSelectedPost(post);
   };
-  const closePost = post => {
+  const closePost = () => {
     setAnimate("exit");
     setTimeout(() => setSelectedPost(false), 300);
   };
@@ -183,42 +185,44 @@ const BlogRoll = ({ data }) => {
   );
 };
 
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query BlogRollQuery {
-        allMarkdownRemark(
-          sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-        ) {
-          edges {
-            node {
-              excerpt(pruneLength: 400)
-              id
-              html
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-                tags
-                templateKey
-                date(formatString: "MMMM DD, YYYY")
-                featuredpost
-                description
-                galleryImages {
-                  childImageSharp {
-                    fluid(maxWidth: 350, quality: 90) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    `}
-    render={(data, count) => <BlogRoll data={data} count={count} />}
-  />
-);
+export default BlogRoll;
+
+// export default () => (
+//   <StaticQuery
+//     query={graphql`
+//       query BlogRollQuery {
+//         allMarkdownRemark(
+//           sort: { order: DESC, fields: [frontmatter___date] }
+//           filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+//         ) {
+//           edges {
+//             node {
+//               excerpt(pruneLength: 400)
+//               id
+//               html
+//               fields {
+//                 slug
+//               }
+//               frontmatter {
+//                 title
+//                 tags
+//                 templateKey
+//                 date(formatString: "MMMM DD, YYYY")
+//                 featuredpost
+//                 description
+//                 galleryImages {
+//                   childImageSharp {
+//                     fluid(maxWidth: 350, quality: 90) {
+//                       ...GatsbyImageSharpFluid
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     `}
+//     render={(data, count) => <BlogRoll data={data} count={count} />}
+//   />
+// );
